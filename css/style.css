@@ -1,11 +1,52 @@
  /* =========================================================
    ZIGO MINISTRIES
-   MODERN DARK CHURCH WEBSITE
+   MODERN MINIMAL WEBSITE
+   COMPLETE STYLE SYSTEM
 ========================================================= */
 
 
 /* =========================================================
-   RESET
+   01. DESIGN SYSTEM
+========================================================= */
+
+:root {
+
+    --black: #05070a;
+    --dark: #08111c;
+    --navy: #071a2b;
+    --blue: #0b3554;
+    --accent: #2d7ff9;
+
+    --white: #ffffff;
+    --soft-white: #f5f7fa;
+    --muted: #9aaec3;
+
+    --border: rgba(255,255,255,0.10);
+    --border-blue: rgba(45,127,249,0.25);
+
+    --gradient-dark:
+        linear-gradient(
+            135deg,
+            #05070a 0%,
+            #071a2b 55%,
+            #0b3554 100%
+        );
+
+    --gradient-blue:
+        linear-gradient(
+            135deg,
+            #071a2b 0%,
+            #0b3554 55%,
+            #2d7ff9 140%
+        );
+
+    --container: 1200px;
+
+}
+
+
+/* =========================================================
+   02. RESET
 ========================================================= */
 
 * {
@@ -19,11 +60,22 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #05080d;
-    color: #f5f7fa;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--black);
+    color: var(--white);
+
     line-height: 1.6;
+
     overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
 }
 
 a {
@@ -31,727 +83,426 @@ a {
     text-decoration: none;
 }
 
-img,
-iframe {
-    max-width: 100%;
+button,
+input,
+textarea,
+select {
+    font: inherit;
 }
 
+
+/* =========================================================
+   03. GLOBAL CONTAINER
+========================================================= */
+
 .container {
-    width: min(1180px, 90%);
+    width: min(
+        calc(100% - 80px),
+        var(--container)
+    );
+
     margin: 0 auto;
 }
 
 
 /* =========================================================
-   NAVBAR
+   04. HEADER
 ========================================================= */
 
+header,
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    position: relative;
+    z-index: 100;
 
-    background: rgba(5, 8, 13, 0.88);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background: rgba(5,7,10,0.92);
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(14px);
 }
 
-.nav-container {
-    min-height: 76px;
+nav {
+    min-height: 80px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    max-width: var(--container);
+
+    margin: 0 auto;
+
+    padding: 0 40px;
 }
+
+
+/* LOGO */
 
 .logo {
-    font-size: 22px;
+    font-size: 24px;
+
     font-weight: 800;
-    letter-spacing: 4px;
 
-    transition: 0.3s ease;
+    letter-spacing: 3px;
+
+    color: var(--white);
+
+    white-space: nowrap;
 }
 
-.logo:hover {
-    color: #72aaff;
-}
 
-.nav-links {
+/* NAVIGATION */
+
+nav ul {
+    list-style: none;
+
     display: flex;
+
     align-items: center;
-    gap: 34px;
+
+    gap: 38px;
 }
 
-.nav-links a {
-    color: #b9c1cc;
+nav ul li a {
+    position: relative;
+
+    color: #c5ced8;
+
     font-size: 15px;
-    transition: 0.3s ease;
-}
 
-.nav-links a:hover {
-    color: #ffffff;
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 13px 22px;
-
-    border-radius: 10px;
-
-    font-size: 14px;
-    font-weight: 700;
+    font-weight: 500;
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease,
-        border-color 0.3s ease;
+        color 0.25s ease;
 }
 
-.btn-primary {
-    background: #3182f6;
-    color: white;
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(49, 130, 246, 0.25);
-    background: #4890f8;
-}
-
-.btn-outline {
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    color: #ffffff;
-}
-
-.btn-outline:hover {
-    transform: translateY(-3px);
-    border-color: rgba(114, 170, 255, 0.6);
-    background: rgba(114, 170, 255, 0.08);
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-    min-height: 700px;
-
-    display: flex;
-    align-items: center;
-
-    position: relative;
-
-    background:
-        radial-gradient(
-            circle at 75% 35%,
-            rgba(45, 108, 190, 0.18),
-            transparent 35%
-        ),
-        #05080d;
-}
-
-.hero-content {
-    padding: 120px 0;
-}
-
-.eyebrow,
-.section-label {
-    color: #4d99ff;
-
-    font-size: 12px;
-    font-weight: 800;
-
-    letter-spacing: 4px;
-    text-transform: uppercase;
-
-    margin-bottom: 22px;
-}
-
-.hero h1 {
-    max-width: 850px;
-
-    font-size: clamp(55px, 8vw, 100px);
-    line-height: 0.98;
-
-    letter-spacing: -5px;
-
-    margin-bottom: 30px;
-}
-
-.hero h1 span {
-    color: #78adff;
-}
-
-.hero-description {
-    max-width: 600px;
-
-    color: #8f9baa;
-
-    font-size: 18px;
-    line-height: 1.8;
-
-    margin-bottom: 38px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-}
-
-
-/* =========================================================
-   GENERAL SECTION HEADINGS
-========================================================= */
-
-.section-heading {
-    max-width: 750px;
-    margin-bottom: 55px;
-}
-
-.section-heading h2 {
-    font-size: clamp(40px, 5vw, 64px);
-    line-height: 1.05;
-
-    letter-spacing: -3px;
-
-    margin-bottom: 22px;
-}
-
-.section-heading h2 span {
-    color: #78adff;
-}
-
-.section-description {
-    color: #82909f;
-
-    font-size: 17px;
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   LIVE SERVICE
-========================================================= */
-
-.live-section {
-    padding: 120px 0;
-
-    background:
-        linear-gradient(
-            180deg,
-            #07111d 0%,
-            #05080d 100%
-        );
-}
-
-
-/* THE IMPORTANT PART:
-   VIDEO + INFO ARE HORIZONTAL */
-
-.live-card {
-    display: grid;
-
-    grid-template-columns: minmax(0, 1.65fr) minmax(300px, 0.75fr);
-
-    min-height: 390px;
-
-    background: #08121e;
-
-    border: 1px solid rgba(91, 157, 230, 0.18);
-
-    border-radius: 22px;
-
-    overflow: hidden;
-
-    transition: 0.4s ease;
-}
-
-.live-card:hover {
-    border-color: rgba(91, 157, 230, 0.42);
-
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.35);
-}
-
-
-/* VIDEO */
-
-.live-video {
-    position: relative;
-
-    width: 100%;
-    min-height: 390px;
-
-    background: #000;
-}
-
-.live-video iframe {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    min-height: 390px;
-
-    border: 0;
-}
-
-
-/* LIVE INFORMATION */
-
-.live-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 45px;
-}
-
-.live-status {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-
-    color: #ff5b67;
-
-    font-size: 11px;
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 18px;
-}
-
-.live-status span {
-    width: 8px;
-    height: 8px;
-
-    background: #ff4d5a;
-
-    border-radius: 50%;
-
-    box-shadow: 0 0 15px rgba(255, 77, 90, 0.8);
-
-    animation: livePulse 1.6s infinite;
-}
-
-@keyframes livePulse {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.4;
-        transform: scale(1.35);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.live-content h3 {
-    font-size: 32px;
-    line-height: 1.1;
-
-    margin-bottom: 15px;
-}
-
-.live-content > p {
-    color: #8493a3;
-
-    font-size: 15px;
-    line-height: 1.8;
-
-    margin-bottom: 25px;
-}
-
-.service-details {
-    padding: 18px 0;
-
-    margin-bottom: 25px;
-
-    border-top: 1px solid rgba(255,255,255,0.07);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-
-.service-details strong {
-    display: block;
-
-    font-size: 14px;
-
-    margin-bottom: 4px;
-}
-
-.service-details span {
-    color: #758392;
-
-    font-size: 13px;
-}
-
-
-/* =========================================================
-   WELCOME
-========================================================= */
-
-.welcome {
-    padding: 130px 0;
-
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.welcome-content {
-    max-width: 850px;
-}
-
-.welcome h2 {
-    font-size: clamp(42px, 6vw, 72px);
-    line-height: 1.05;
-
-    letter-spacing: -3px;
-
-    margin-bottom: 28px;
-}
-
-.welcome h2 span {
-    color: #78adff;
-}
-
-.welcome p:not(.section-label) {
-    max-width: 650px;
-
-    color: #85919f;
-
-    font-size: 17px;
-    line-height: 1.9;
-
-    margin-bottom: 30px;
-}
-
-.text-link {
-    color: #75aaff;
-
-    font-weight: 700;
-
-    transition: 0.3s ease;
-}
-
-.text-link:hover {
-    color: white;
-    padding-left: 6px;
-}
-
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about {
-    padding: 120px 0;
-
-    background: #07101a;
-}
-
-.about-grid {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 100px;
-
-    align-items: start;
-}
-
-.about h2 {
-    font-size: clamp(40px, 5vw, 62px);
-    line-height: 1.05;
-
-    letter-spacing: -3px;
-}
-
-.about h2 span {
-    color: #78adff;
-}
-
-.about-grid > div:last-child {
-    padding-top: 12px;
-}
-
-.about-grid p {
-    color: #8996a4;
-
-    font-size: 17px;
-    line-height: 1.9;
-
-    margin-bottom: 20px;
-}
-
-
-/* =========================================================
-   MINISTRIES
-========================================================= */
-
-.ministries {
-    padding: 120px 0;
-}
-
-.ministry-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-.ministry-card {
-    position: relative;
-
-    min-height: 310px;
-
-    padding: 35px;
-
-    background: #08111c;
-
-    border: 1px solid rgba(255,255,255,0.07);
-
-    border-radius: 18px;
-
-    overflow: hidden;
-
-    transition: 0.4s ease;
-}
-
-.ministry-card::after {
+nav ul li a::after {
     content: "";
 
     position: absolute;
 
-    width: 160px;
-    height: 160px;
+    left: 0;
+    bottom: -8px;
 
-    right: -80px;
-    bottom: -80px;
+    width: 0;
+    height: 2px;
 
-    background: rgba(63, 137, 255, 0.12);
+    background: var(--accent);
 
-    border-radius: 50%;
-
-    transition: 0.4s ease;
+    transition:
+        width 0.25s ease;
 }
 
-.ministry-card:hover {
-    transform: translateY(-8px);
-
-    border-color: rgba(95, 157, 240, 0.35);
-
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+nav ul li a:hover {
+    color: var(--white);
 }
 
-.ministry-card:hover::after {
-    transform: scale(2);
-}
-
-.card-number {
-    color: #4f91ee;
-
-    font-size: 12px;
-    font-weight: 800;
-
-    letter-spacing: 2px;
-}
-
-.ministry-card h3 {
-    font-size: 26px;
-
-    margin: 70px 0 12px;
-}
-
-.ministry-card p {
-    color: #7f8d9b;
-
-    font-size: 14px;
-    line-height: 1.8;
-
-    max-width: 280px;
-
-    margin-bottom: 20px;
-}
-
-.card-link {
-    color: #72aaff;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    transition: 0.3s ease;
-}
-
-.card-link:hover {
-    color: white;
-    padding-left: 5px;
+nav ul li a:hover::after {
+    width: 100%;
 }
 
 
 /* =========================================================
-   EVENTS
+   05. BUTTONS
 ========================================================= */
 
-.events {
-    padding: 120px 0;
+.btn {
+    display: inline-flex;
 
-    background: #07101a;
-}
-
-.event-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 20px;
-}
-
-.event-card {
-    display: grid;
-
-    grid-template-columns: 110px 1fr;
-
-    gap: 30px;
-
-    padding: 30px;
-
-    background: #08121e;
-
-    border: 1px solid rgba(255,255,255,0.07);
-
-    border-radius: 18px;
-
-    transition: 0.35s ease;
-}
-
-.event-card:hover {
-    transform: translateY(-5px);
-
-    border-color: rgba(91,157,230,0.35);
-}
-
-.event-date {
-    min-height: 90px;
-
-    display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 12px;
+    min-height: 52px;
 
-    background: rgba(62,137,244,0.1);
+    padding: 0 26px;
 
-    color: #72aaff;
+    border-radius: 6px;
 
-    font-size: 12px;
-    letter-spacing: 1px;
+    font-size: 15px;
+
+    font-weight: 700;
+
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
 }
 
-.event-type {
-    color: #4f91ee;
+.btn-primary {
+    background: var(--accent);
 
-    font-size: 10px;
-    font-weight: 800;
+    color: var(--white);
 
-    letter-spacing: 2px;
+    box-shadow:
+        0 8px 30px rgba(45,127,249,0.18);
 }
 
-.event-card h3 {
-    font-size: 25px;
+.btn-primary:hover {
+    transform: translateY(-3px);
 
-    margin: 8px 0;
+    box-shadow:
+        0 14px 40px rgba(45,127,249,0.30);
 }
 
-.event-card p {
-    color: #7f8c9a;
+.btn-secondary {
+    background: transparent;
 
-    font-size: 14px;
+    color: var(--white);
+
+    border-color:
+        rgba(255,255,255,0.25);
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.06);
+
+    border-color:
+        rgba(255,255,255,0.45);
+
+    transform: translateY(-3px);
 }
 
 
 /* =========================================================
-   SERMONS
+   06. SECTION SYSTEM
 ========================================================= */
 
-.sermons {
-    padding: 120px 0;
+section {
+    position: relative;
+}
+
+.section-label {
+    margin-bottom: 24px;
+
+    color: var(--accent);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+.section-heading {
+    margin-bottom: 55px;
+}
+
+.section-heading h2 {
+    max-width: 850px;
+
+    font-size: clamp(
+        42px,
+        5vw,
+        68px
+    );
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+}
+
+.section-heading h2 span {
+    color: #91bcff;
+}
+
+.section-text {
+    max-width: 680px;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+    line-height: 1.8;
 }
 
 
-/* HORIZONTAL 3-CARD LAYOUT */
+/* =========================================================
+   07. HERO
+========================================================= */
 
-.sermon-grid {
+.hero {
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(45,127,249,0.13),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #05070a 0%,
+            #071a2b 100%
+        );
+
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    right: -350px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(45,127,249,0.10),
+            transparent 68%
+        );
+
+    pointer-events: none;
+}
+
+.hero .container {
+    position: relative;
+
+    z-index: 2;
+
+    padding: 110px 0;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero h1 {
+    max-width: 900px;
+
+    margin-bottom: 30px;
+
+    font-size: clamp(
+        58px,
+        7vw,
+        100px
+    );
+
+    line-height: 0.96;
+
+    letter-spacing: -5px;
+
+    font-weight: 900;
+}
+
+.hero h1 span {
+    color: #91bcff;
+}
+
+.hero .hero-text {
+    max-width: 650px;
+
+    margin-bottom: 40px;
+
+    color: var(--muted);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+}
+
+
+/* =========================================================
+   08. LIVE SERVICE
+========================================================= */
+
+.live-section {
+    padding: 110px 0;
+
+    background: var(--black);
+}
+
+.live-section .section-heading {
+    max-width: 850px;
+}
+
+.live-grid {
+
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        minmax(0, 1.45fr)
+        minmax(300px, 0.75fr);
 
-    gap: 24px;
+    gap: 35px;
 
-    margin-top: 45px;
+    align-items: stretch;
+
+    margin-top: 55px;
 }
 
 
-/* CARD */
+/* VIDEO CARD */
 
-.sermon-card {
-    background: #08121e;
+.video-card {
 
-    border: 1px solid rgba(255,255,255,0.07);
+    min-width: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #07131f,
+            #081d2e
+        );
+
+    border: 1px solid var(--border-blue);
 
     border-radius: 18px;
 
     overflow: hidden;
 
-    transition: 0.4s ease;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.sermon-card:hover {
-    transform: translateY(-8px);
+.video-card:hover {
 
-    border-color: rgba(91,157,230,0.4);
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(45,127,249,0.50);
 
     box-shadow:
-        0 25px 60px rgba(0,0,0,0.35);
+        0 25px 60px rgba(0,0,0,0.30);
 }
 
 
 /* VIDEO */
 
-.sermon-video,
-.sermon-thumbnail {
-    position: relative;
+.video-card iframe {
+
+    width: 100%;
 
     aspect-ratio: 16 / 9;
-
-    overflow: hidden;
-
-    background: #020406;
-}
-
-.sermon-video iframe {
-    width: 100%;
-    height: 100%;
 
     display: block;
 
@@ -761,755 +512,1147 @@ iframe {
 
 /* PLACEHOLDER */
 
-.sermon-thumbnail {
+.video-placeholder {
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     background:
-        radial-gradient(
-            circle at center,
-            #11253b,
-            #02060b 70%
+        linear-gradient(
+            135deg,
+            #07131f,
+            #0b2b43
         );
 }
 
-.play-icon {
-    width: 60px;
-    height: 60px;
+.play-button {
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 70px;
+    height: 70px;
 
     border-radius: 50%;
 
-    background: #3182f6;
+    display: flex;
 
-    font-size: 20px;
+    align-items: center;
+    justify-content: center;
 
-    padding-left: 3px;
+    background: var(--accent);
 
     box-shadow:
-        0 10px 30px rgba(49,130,246,0.35);
+        0 15px 45px rgba(45,127,249,0.35);
 
-    transition: 0.3s ease;
+    transition:
+        transform 0.3s ease;
 }
 
-.sermon-card:hover .play-icon {
-    transform: scale(1.1);
+.video-card:hover .play-button {
+    transform: scale(1.08);
 }
 
 
-/* SERMON INFORMATION */
+/* LIVE INFO */
+
+.live-info {
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #08111c,
+            #071a2b
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.live-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    width: fit-content;
+
+    margin-bottom: 20px;
+
+    padding: 7px 12px;
+
+    border-radius: 100px;
+
+    background:
+        rgba(45,127,249,0.10);
+
+    border:
+        1px solid rgba(45,127,249,0.25);
+
+    color: #8ebcff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.live-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #ff3d5a;
+
+    box-shadow:
+        0 0 0 5px rgba(255,61,90,0.10);
+}
+
+.live-info h3 {
+
+    margin-bottom: 12px;
+
+    font-size: 30px;
+
+    line-height: 1.15;
+}
+
+.live-info p {
+
+    margin-bottom: 24px;
+
+    color: var(--muted);
+
+    line-height: 1.7;
+}
+
+.service-time {
+
+    margin-bottom: 28px;
+
+    padding: 16px 0;
+
+    border-top: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.service-time strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+.service-time span {
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   09. WELCOME
+========================================================= */
+
+.welcome {
+
+    padding: 120px 0;
+
+    background:
+        var(--gradient-dark);
+}
+
+.welcome .container {
+
+    display: grid;
+
+    grid-template-columns:
+        0.75fr
+        1.25fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.welcome h2 {
+
+    font-size: clamp(
+        42px,
+        5vw,
+        64px
+    );
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+.welcome h2 span {
+
+    color: #91bcff;
+}
+
+.welcome .section-text {
+
+    max-width: 700px;
+}
+
+
+/* =========================================================
+   10. ABOUT
+========================================================= */
+
+.about {
+
+    padding: 120px 0;
+
+    background: var(--black);
+}
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr
+        0.9fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.about-content h2 {
+
+    margin-bottom: 28px;
+
+    font-size: clamp(
+        40px,
+        5vw,
+        64px
+    );
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+.about-content h2 span {
+
+    color: #91bcff;
+}
+
+.about-content .section-text {
+
+    margin-bottom: 30px;
+}
+
+.about-card {
+
+    min-height: 330px;
+
+    padding: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #08111c,
+            #071a2b
+        );
+
+    border:
+        1px solid var(--border-blue);
+
+    border-radius: 20px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.25);
+}
+
+.cross-symbol {
+
+    margin-bottom: 25px;
+
+    color: #91bcff;
+
+    font-size: 55px;
+
+    line-height: 1;
+}
+
+.about-card p {
+
+    color: var(--muted);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+.about-card span {
+
+    display: block;
+
+    margin-top: 20px;
+
+    color: #7892aa;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   11. MINISTRIES
+========================================================= */
+
+.ministries {
+
+    padding: 120px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #07111b,
+            #05070a
+        );
+}
+
+.ministry-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+
+    margin-top: 55px;
+}
+
+.ministry-card {
+
+    min-height: 280px;
+
+    padding: 32px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #08111c,
+            #071a2b
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.ministry-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    right: -70px;
+    top: -70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(45,127,249,0.10);
+
+    transition:
+        transform 0.4s ease;
+}
+
+.ministry-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(45,127,249,0.45);
+}
+
+.ministry-card:hover::before {
+
+    transform: scale(2);
+}
+
+.ministry-card h3 {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 10px;
+
+    font-size: 25px;
+}
+
+.ministry-card p {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   12. EVENTS
+========================================================= */
+
+.events {
+
+    padding: 120px 0;
+
+    background: var(--black);
+}
+
+.event-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+
+    margin-top: 55px;
+}
+
+.event-card {
+
+    padding: 30px;
+
+    background:
+        #08111c;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.event-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(45,127,249,0.45);
+}
+
+.event-date {
+
+    display: inline-block;
+
+    margin-bottom: 22px;
+
+    color: #91bcff;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.event-card h3 {
+
+    margin-bottom: 12px;
+
+    font-size: 24px;
+}
+
+.event-card p {
+
+    color: var(--muted);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   13. SERMONS
+========================================================= */
+
+.sermons {
+
+    padding: 120px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #07111b,
+            #05070a
+        );
+}
+
+.sermon-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+
+    margin-top: 55px;
+}
+
+.sermon-card {
+
+    overflow: hidden;
+
+    background:
+        #08111c;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.sermon-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(45,127,249,0.45);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.25);
+}
+
+.sermon-video {
+
+    width: 100%;
+
+    background: #020407;
+
+    overflow: hidden;
+}
+
+.sermon-video iframe {
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    border: 0;
+}
 
 .sermon-info {
+
     padding: 25px;
 }
 
-.sermon-info > span {
-    color: #4f91ee;
+.sermon-label {
 
-    font-size: 10px;
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--accent);
+
+    font-size: 11px;
+
     font-weight: 800;
 
     letter-spacing: 2px;
 }
 
 .sermon-info h3 {
-    font-size: 23px;
 
-    margin: 10px 0;
+    margin-bottom: 10px;
+
+    font-size: 22px;
+
+    line-height: 1.25;
 }
 
 .sermon-info p {
-    color: #7f8d9b;
+
+    color: var(--muted);
 
     font-size: 14px;
+
     line-height: 1.7;
 }
 
 
-/* SERMON BUTTON */
+/* VIEW ALL */
 
-.center-button {
-    display: flex;
+.sermons .btn {
 
-    justify-content: center;
-
-    margin-top: 45px;
+    margin-top: 40px;
 }
 
 
 /* =========================================================
-   CONTACT
+   14. CTA
 ========================================================= */
 
-.contact {
-    padding: 120px 0;
-}
+.cta {
 
-.contact-box {
-    padding: 80px 60px;
-
-    text-align: center;
-
-    border-radius: 24px;
+    padding: 130px 0;
 
     background:
         radial-gradient(
-            circle at 50% 0%,
-            rgba(64,137,243,0.16),
-            transparent 55%
+            circle at 70% 50%,
+            rgba(45,127,249,0.15),
+            transparent 35%
         ),
-        #08121e;
-
-    border: 1px solid rgba(91,157,230,0.16);
+        var(--gradient-dark);
 }
 
-.contact-box .section-label {
-    margin-bottom: 20px;
+.cta .container {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
 }
 
-.contact-box h2 {
-    font-size: clamp(40px, 6vw, 70px);
-    line-height: 1.05;
+.cta h2 {
+
+    max-width: 750px;
+
+    font-size: clamp(
+        42px,
+        5vw,
+        70px
+    );
+
+    line-height: 1;
 
     letter-spacing: -3px;
-
-    margin-bottom: 25px;
 }
 
-.contact-box h2 span {
-    color: #78adff;
+.cta h2 span {
+
+    color: #91bcff;
 }
 
-.contact-box p:not(.section-label) {
-    max-width: 550px;
+.cta .btn {
 
-    margin: 0 auto 30px;
-
-    color: #82909f;
-
-    font-size: 16px;
+    flex-shrink: 0;
 }
 
 
 /* =========================================================
-   FOOTER
+   15. FOOTER
 ========================================================= */
 
-footer {
-    padding: 70px 0 25px;
+.footer {
 
-    background: #030509;
+    padding: 75px 0 25px;
 
-    border-top: 1px solid rgba(255,255,255,0.06);
+    background: #030507;
+
+    border-top:
+        1px solid var(--border);
 }
 
 .footer-grid {
+
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1.4fr
+        1fr
+        1fr;
 
     gap: 60px;
 
     padding-bottom: 55px;
 }
 
-.footer-logo {
+.footer h3 {
+
+    margin-bottom: 15px;
+
     font-size: 20px;
-    font-weight: 800;
 
-    letter-spacing: 3px;
-
-    margin-bottom: 12px;
+    letter-spacing: 1px;
 }
 
-.footer-grid p {
-    color: #687583;
+.footer h4 {
+
+    margin-bottom: 18px;
 
     font-size: 14px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
 }
 
-.footer-grid h4 {
-    margin-bottom: 15px;
+.footer p {
+
+    max-width: 400px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
 }
 
-.footer-grid a {
+.footer a {
+
     display: block;
 
-    width: fit-content;
+    margin-bottom: 10px;
 
-    color: #71808f;
+    color: var(--muted);
 
     font-size: 14px;
 
-    margin-bottom: 8px;
-
-    transition: 0.3s ease;
+    transition:
+        color 0.2s ease;
 }
 
-.footer-grid a:hover {
-    color: #72aaff;
+.footer a:hover {
+
+    color: var(--white);
 }
 
 .footer-bottom {
+
     padding-top: 25px;
 
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top:
+        1px solid var(--border);
 
-    color: #566270;
+    color: #657789;
 
-    font-size: 12px;
+    font-size: 13px;
 }
 
 
 /* =========================================================
-   MOBILE
+   16. FORMS
 ========================================================= */
 
-@media (max-width: 900px) {
+input,
+textarea,
+select {
 
-    .nav-links {
-        gap: 15px;
+    width: 100%;
+
+    padding: 15px 17px;
+
+    color: var(--white);
+
+    background:
+        #08111c;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    border-color:
+        var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(45,127,249,0.10);
+}
+
+textarea {
+
+    min-height: 150px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   17. SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+
+    background: #030507;
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #183149;
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #275276;
+}
+
+
+/* =========================================================
+   18. TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .container {
+
+        width:
+            min(
+                calc(100% - 50px),
+                var(--container)
+            );
     }
 
-    .nav-links a {
-        font-size: 13px;
+    nav {
+
+        padding: 0 25px;
     }
 
-    /* LIVE BECOMES STACKED ON SMALL SCREENS */
+    nav ul {
 
-    .live-card {
+        gap: 22px;
+    }
+
+    .live-grid {
+
         grid-template-columns: 1fr;
     }
 
-    .live-video,
-    .live-video iframe {
-        min-height: 350px;
-    }
+    .welcome .container {
 
-    .live-content {
-        padding: 35px;
+        grid-template-columns: 1fr;
+
+        gap: 45px;
     }
 
     .about-grid {
+
         grid-template-columns: 1fr;
 
-        gap: 40px;
+        gap: 45px;
     }
 
     .ministry-grid,
+    .event-grid,
     .sermon-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    .event-grid {
-        grid-template-columns: 1fr;
+    .cta .container {
+
+        flex-direction: column;
+
+        align-items: flex-start;
     }
+
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   19. MOBILE
 ========================================================= */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
 
     .container {
-        width: 90%;
+
+        width:
+            calc(100% - 40px);
     }
 
-    .nav-container {
-        min-height: 65px;
+    /* HEADER */
+
+    nav {
+
+        min-height: 70px;
+
+        padding: 0 20px;
     }
 
     .logo {
-        font-size: 16px;
+
+        font-size: 19px;
+
         letter-spacing: 2px;
     }
 
-    .nav-links {
+    nav ul {
+
         display: none;
     }
 
+
+    /* HERO */
+
     .hero {
-        min-height: 620px;
+
+        min-height: auto;
     }
 
-    .hero-content {
+    .hero .container {
+
         padding: 90px 0;
     }
 
     .hero h1 {
-        font-size: 55px;
+
+        font-size:
+            clamp(
+                48px,
+                14vw,
+                70px
+            );
 
         letter-spacing: -3px;
+
+        line-height: 0.98;
     }
 
-    .hero-description {
-        font-size: 15px;
+    .hero .hero-text {
+
+        font-size: 16px;
+
+        line-height: 1.7;
     }
+
+    .hero-buttons {
+
+        flex-wrap: wrap;
+    }
+
+
+    /* SECTIONS */
 
     .live-section,
     .welcome,
     .about,
     .ministries,
     .events,
-    .sermons,
-    .contact {
-        padding: 80px 0;
+    .sermons {
+
+        padding: 85px 0;
     }
 
     .section-heading {
-        margin-bottom: 35px;
+
+        margin-bottom: 40px;
     }
 
     .section-heading h2 {
-        font-size: 42px;
+
+        font-size:
+            clamp(
+                38px,
+                11vw,
+                55px
+            );
     }
 
-    .live-card {
-        border-radius: 16px;
+
+    /* LIVE */
+
+    .live-grid {
+
+        margin-top: 40px;
+
+        gap: 20px;
     }
 
-    .live-video,
-    .live-video iframe {
-        min-height: 220px;
-    }
+    .live-info {
 
-    .live-content {
         padding: 28px;
     }
 
-    .live-content h3 {
-        font-size: 28px;
+    .live-info h3 {
+
+        font-size: 27px;
     }
+
+
+    /* CARDS */
 
     .ministry-grid,
+    .event-grid,
     .sermon-grid {
-        grid-template-columns: 1fr;
-    }
 
-    .ministry-card {
-        min-height: 270px;
-    }
-
-    .event-card {
         grid-template-columns: 1fr;
 
         gap: 18px;
     }
 
-    .event-date {
-        min-height: 60px;
+    .ministry-card {
+
+        min-height: 230px;
     }
 
-    .contact-box {
-        padding: 55px 25px;
+
+    /* CTA */
+
+    .cta {
+
+        padding: 90px 0;
+    }
+
+    .cta h2 {
+
+        font-size:
+            clamp(
+                40px,
+                11vw,
+                58px
+            );
+
+        letter-spacing: -2px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+
+        padding-top: 60px;
     }
 
     .footer-grid {
+
         grid-template-columns: 1fr;
 
-        gap: 35px;
+        gap: 40px;
     }
 
 }
-/* =========================================================
-   HERO — CLEAN MODERN ALIGNMENT
-   FINAL OVERRIDE
-========================================================= */
-
-.hero {
-    min-height: calc(100vh - 80px);
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 40px;
-}
-
-.hero-content {
-    width: 100%;
-    max-width: 900px;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-
-/* SMALL LABEL */
-
-.hero-content .section-label,
-.hero-content .hero-label {
-    margin-bottom: 28px;
-}
-
-
-/* MAIN HEADING */
-
-.hero h1 {
-    max-width: 850px !important;
-
-    font-size: clamp(58px, 7vw, 96px) !important;
-
-    line-height: 0.98 !important;
-
-    letter-spacing: -4px !important;
-
-    margin: 0 0 30px 0 !important;
-}
-
-
-/* BLUE TEXT INSIDE HEADING */
-
-.hero h1 span {
-    display: inline;
-}
-
-
-/* DESCRIPTION */
-
-.hero .hero-text,
-.hero .section-text,
-.hero p {
-    max-width: 650px !important;
-
-    font-size: 18px !important;
-
-    line-height: 1.7 !important;
-
-    margin: 0 0 38px 0 !important;
-
-    color: var(--muted) !important;
-}
-
-
-/* BUTTON AREA */
-
-.hero .hero-buttons,
-.hero .btn-group,
-.hero .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-
-    margin-top: 0 !important;
-}
-
-
-/* BUTTONS */
-
-.hero .btn {
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-}
-
-.hero .btn:hover {
-    transform: translateY(-3px);
-}
 
 
 /* =========================================================
-   SUBTLE BACKGROUND GLOW
+   20. SMALL PHONES
 ========================================================= */
 
-.hero::after {
-    content: "";
+@media (max-width: 420px) {
 
-    position: absolute;
+    .container {
 
-    width: 500px;
-    height: 500px;
-
-    right: -180px;
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    background: radial-gradient(
-        circle,
-        rgba(45, 127, 249, 0.12) 0%,
-        rgba(45, 127, 249, 0.04) 40%,
-        transparent 70%
-    );
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .hero .container {
-        padding: 90px 30px;
-    }
-
-    .hero-content {
-        max-width: 760px;
+        width:
+            calc(100% - 30px);
     }
 
     .hero h1 {
-        font-size: clamp(52px, 8vw, 76px) !important;
-        letter-spacing: -3px !important;
+
+        font-size: 45px;
+
+        letter-spacing: -2px;
     }
 
-}
+    .btn {
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .hero {
-        min-height: auto;
+        width: 100%;
     }
 
-    .hero .container {
-        padding: 80px 22px;
+    .hero-buttons {
+
+        width: 100%;
     }
 
-    .hero-content {
-        max-width: 100%;
-    }
+    .live-info {
 
-    .hero-content .section-label,
-    .hero-content .hero-label {
-        margin-bottom: 22px;
-    }
-
-    .hero h1 {
-        font-size: clamp(44px, 13vw, 62px) !important;
-        line-height: 1 !important;
-        letter-spacing: -2px !important;
-        margin-bottom: 24px !important;
-    }
-
-    .hero .hero-text,
-    .hero .section-text,
-    .hero p {
-        font-size: 16px !important;
-        line-height: 1.65 !important;
-        margin-bottom: 30px !important;
-    }
-
-    .hero .hero-buttons,
-    .hero .btn-group,
-    .hero .hero-actions {
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-}
-/* =========================================================
-   HERO — CLEAN MODERN ALIGNMENT
-   FINAL OVERRIDE
-========================================================= */
-
-.hero {
-    min-height: calc(100vh - 80px);
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 40px;
-}
-
-.hero-content {
-    width: 100%;
-    max-width: 900px;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-
-/* SMALL LABEL */
-
-.hero-content .section-label,
-.hero-content .hero-label {
-    margin-bottom: 28px;
-}
-
-
-/* MAIN HEADING */
-
-.hero h1 {
-    max-width: 850px !important;
-
-    font-size: clamp(58px, 7vw, 96px) !important;
-
-    line-height: 0.98 !important;
-
-    letter-spacing: -4px !important;
-
-    margin: 0 0 30px 0 !important;
-}
-
-
-/* BLUE TEXT INSIDE HEADING */
-
-.hero h1 span {
-    display: inline;
-}
-
-
-/* DESCRIPTION */
-
-.hero .hero-text,
-.hero .section-text,
-.hero p {
-    max-width: 650px !important;
-
-    font-size: 18px !important;
-
-    line-height: 1.7 !important;
-
-    margin: 0 0 38px 0 !important;
-
-    color: var(--muted) !important;
-}
-
-
-/* BUTTON AREA */
-
-.hero .hero-buttons,
-.hero .btn-group,
-.hero .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-
-    margin-top: 0 !important;
-}
-
-
-/* BUTTONS */
-
-.hero .btn {
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-}
-
-.hero .btn:hover {
-    transform: translateY(-3px);
-}
-
-
-/* =========================================================
-   SUBTLE BACKGROUND GLOW
-========================================================= */
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    width: 500px;
-    height: 500px;
-
-    right: -180px;
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    background: radial-gradient(
-        circle,
-        rgba(45, 127, 249, 0.12) 0%,
-        rgba(45, 127, 249, 0.04) 40%,
-        transparent 70%
-    );
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .hero .container {
-        padding: 90px 30px;
-    }
-
-    .hero-content {
-        max-width: 760px;
-    }
-
-    .hero h1 {
-        font-size: clamp(52px, 8vw, 76px) !important;
-        letter-spacing: -3px !important;
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .hero {
-        min-height: auto;
-    }
-
-    .hero .container {
-        padding: 80px 22px;
-    }
-
-    .hero-content {
-        max-width: 100%;
-    }
-
-    .hero-content .section-label,
-    .hero-content .hero-label {
-        margin-bottom: 22px;
-    }
-
-    .hero h1 {
-        font-size: clamp(44px, 13vw, 62px) !important;
-        line-height: 1 !important;
-        letter-spacing: -2px !important;
-        margin-bottom: 24px !important;
-    }
-
-    .hero .hero-text,
-    .hero .section-text,
-    .hero p {
-        font-size: 16px !important;
-        line-height: 1.65 !important;
-        margin-bottom: 30px !important;
-    }
-
-    .hero .hero-buttons,
-    .hero .btn-group,
-    .hero .hero-actions {
-        flex-wrap: wrap;
-        gap: 12px;
+        padding: 23px;
     }
 
 }
