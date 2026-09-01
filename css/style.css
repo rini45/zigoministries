@@ -1315,3 +1315,201 @@ footer {
     }
 
 }
+/* =========================================================
+   HERO — CLEAN MODERN ALIGNMENT
+   FINAL OVERRIDE
+========================================================= */
+
+.hero {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+/* SMALL LABEL */
+
+.hero-content .section-label,
+.hero-content .hero-label {
+    margin-bottom: 28px;
+}
+
+
+/* MAIN HEADING */
+
+.hero h1 {
+    max-width: 850px !important;
+
+    font-size: clamp(58px, 7vw, 96px) !important;
+
+    line-height: 0.98 !important;
+
+    letter-spacing: -4px !important;
+
+    margin: 0 0 30px 0 !important;
+}
+
+
+/* BLUE TEXT INSIDE HEADING */
+
+.hero h1 span {
+    display: inline;
+}
+
+
+/* DESCRIPTION */
+
+.hero .hero-text,
+.hero .section-text,
+.hero p {
+    max-width: 650px !important;
+
+    font-size: 18px !important;
+
+    line-height: 1.7 !important;
+
+    margin: 0 0 38px 0 !important;
+
+    color: var(--muted) !important;
+}
+
+
+/* BUTTON AREA */
+
+.hero .hero-buttons,
+.hero .btn-group,
+.hero .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-top: 0 !important;
+}
+
+
+/* BUTTONS */
+
+.hero .btn {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.hero .btn:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   SUBTLE BACKGROUND GLOW
+========================================================= */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -180px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(45, 127, 249, 0.12) 0%,
+        rgba(45, 127, 249, 0.04) 40%,
+        transparent 70%
+    );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero .container {
+        padding: 90px 30px;
+    }
+
+    .hero-content {
+        max-width: 760px;
+    }
+
+    .hero h1 {
+        font-size: clamp(52px, 8vw, 76px) !important;
+        letter-spacing: -3px !important;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero .container {
+        padding: 80px 22px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-content .section-label,
+    .hero-content .hero-label {
+        margin-bottom: 22px;
+    }
+
+    .hero h1 {
+        font-size: clamp(44px, 13vw, 62px) !important;
+        line-height: 1 !important;
+        letter-spacing: -2px !important;
+        margin-bottom: 24px !important;
+    }
+
+    .hero .hero-text,
+    .hero .section-text,
+    .hero p {
+        font-size: 16px !important;
+        line-height: 1.65 !important;
+        margin-bottom: 30px !important;
+    }
+
+    .hero .hero-buttons,
+    .hero .btn-group,
+    .hero .hero-actions {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+}
