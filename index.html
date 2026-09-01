@@ -1,388 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Zigo Ministries | A Place to Know Christ</title> 
-  <link rel="stylesheet" href="css/style.css">
+    <title>Zigo Ministries | A Place to Know Christ</title>
 
-  <meta name="description" content="Welcome to Zigo Ministries. A community of faith, hope and love centered on Jesus Christ.">
+    <meta name="description"
+        content="Zigo Ministries — A place where people discover Jesus, grow in faith and live with purpose.">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      color: #17202a;
-      background: #f8f7f3;
-      line-height: 1.6;
-    }
-
-    /* NAVIGATION */
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 22px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(255,255,255,0.95);
-      z-index: 1000;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      color: #17202a;
-      text-decoration: none;
-      margin-left: 30px;
-      font-size: 15px;
-    }
-
-    nav a:hover {
-      opacity: 0.6;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 7% 80px;
-      background:
-        linear-gradient(rgba(18,30,38,0.72), rgba(18,30,38,0.72)),
-        url("https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2000&q=85")
-        center/cover;
-      color: white;
-    }
-
-    .hero-content {
-      max-width: 850px;
-    }
-
-    .hero small {
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 13px;
-    }
-
-    .hero h1 {
-      font-size: clamp(48px, 7vw, 90px);
-      line-height: 1;
-      margin: 25px 0;
-    }
-
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      font-size: 19px;
-      opacity: 0.9;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 35px;
-      padding: 15px 30px;
-      background: white;
-      color: #17202a;
-      text-decoration: none;
-      border-radius: 3px;
-      font-weight: 600;
-    }
-
-    /* SECTIONS */
-
-    section {
-      padding: 100px 7%;
-    }
-
-    .section-title {
-      max-width: 700px;
-      margin-bottom: 50px;
-    }
-
-    .section-title span {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      opacity: 0.55;
-    }
-
-    .section-title h2 {
-      font-size: clamp(35px, 5vw, 55px);
-      line-height: 1.1;
-      margin-top: 12px;
-    }
-
-    /* WELCOME */
-
-    .welcome {
-      background: #f8f7f3;
-    }
-
-    .welcome-text {
-      max-width: 850px;
-      font-size: 20px;
-    }
-
-    /* SERVICES */
-
-    .services {
-      background: #17202a;
-      color: white;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 35px;
-    }
-
-    .service-card h3 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    /* VERSE */
-
-    .verse {
-      text-align: center;
-      background: #e9e4d9;
-    }
-
-    .verse blockquote {
-      max-width: 900px;
-      margin: auto;
-      font-size: clamp(28px, 4vw, 48px);
-      line-height: 1.2;
-      font-weight: 500;
-    }
-
-    .verse cite {
-      display: block;
-      margin-top: 25px;
-      font-style: normal;
-      font-size: 14px;
-      letter-spacing: 2px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #10171d;
-      color: white;
-      padding: 60px 7%;
-      text-align: center;
-    }
-
-    footer h2 {
-      margin-bottom: 10px;
-    }
-
-    footer p {
-      opacity: 0.65;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 750px) {
-
-      nav {
-        padding: 18px 5%;
-      }
-
-      nav .links {
-        display: none;
-      }
-
-      section {
-        padding: 75px 5%;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: 90vh;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-    }
-  </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+    <!-- ================= HEADER ================= -->
 
-  <nav>
-    <div class="logo">ZIGO MINISTRIES</div>
+    <header class="header">
 
-    <div class="links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+        <div class="container nav-container">
 
+            <a href="#" class="logo">
+                ZIGO MINISTRIES
+            </a>
 
-  <!-- HERO -->
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#ministries">Ministries</a>
+                <a href="#events">Events</a>
+                <a href="#sermons">Sermons</a>
+                <a href="#contact">Contact</a>
+            </nav>
 
-  <header class="hero" id="home">
-    <div class="hero-content">
+            <button class="menu-toggle" aria-label="Open menu">
+                ☰
+            </button>
 
-      <small>Welcome to Zigo Ministries</small>
+        </div>
 
-      <h1>Come as you are.<br>Meet Jesus.</h1>
-
-      <p>
-        A place where faith grows, lives are transformed,
-        and people discover the hope found in Christ.
-      </p>
-
-      <a href="#services" class="button">
-        Join Us
-      </a>
-
-    </div>
-  </header>
+    </header>
 
 
-  <!-- WELCOME -->
+    <!-- ================= HERO ================= -->
 
-  <section class="welcome" id="about">
+    <main>
 
-    <div class="section-title">
-      <span>Who We Are</span>
-      <h2>A family centered on Christ.</h2>
-    </div>
+        <section id="home" class="hero">
 
-    <p class="welcome-text">
-      Zigo Ministries exists to proclaim the Gospel of Jesus Christ,
-      build a community of believers, and help people grow deeper
-      in their relationship with God.
-    </p>
+            <div class="hero-overlay"></div>
 
-  </section>
+            <div class="container hero-content">
 
+                <p class="eyebrow">
+                    WELCOME TO ZIGO MINISTRIES
+                </p>
 
-  <!-- SERVICES -->
+                <h1>
+                    Come as you are.<br>
+                    <span>Meet Jesus.</span>
+                </h1>
 
-  <section class="services" id="services">
+                <p class="hero-text">
+                    A place where faith grows, lives are transformed,
+                    and people discover the hope found in Christ.
+                </p>
 
-    <div class="section-title">
-      <span>Join Us</span>
-      <h2>There is a place for you.</h2>
-    </div>
+                <div class="hero-buttons">
 
-    <div class="service-grid">
+                    <a href="#about" class="btn btn-primary">
+                        Discover More
+                    </a>
 
-      <div class="service-card">
-        <h3>Sunday Worship</h3>
-        <p>
-          Join us as we worship, hear God's Word
-          and fellowship together.
-        </p>
-      </div>
+                    <a href="#contact" class="btn btn-outline">
+                        Join Us
+                    </a>
 
-      <div class="service-card">
-        <h3>Youth</h3>
-        <p>
-          A community for young people to discover
-          their identity and purpose in Christ.
-        </p>
-      </div>
+                </div>
 
-      <div class="service-card">
-        <h3>Prayer</h3>
-        <p>
-          Come together in prayer and seek God's
-          presence for our lives and community.
-        </p>
-      </div>
+            </div>
 
-    </div>
-
-  </section>
+        </section>
 
 
-  <!-- SCRIPTURE -->
+        <!-- ================= WELCOME ================= -->
 
-  <section class="verse">
+        <section class="welcome">
 
-    <blockquote>
-      “I was glad when they said to me,
-      ‘Let us go into the house of the LORD.’”
-    </blockquote>
+            <div class="container">
 
-    <cite>PSALM 122:1</cite>
+                <p class="section-label">
+                    YOU ARE WELCOME HERE
+                </p>
 
-  </section>
+                <h2>
+                    A place to <span>belong.</span>
+                </h2>
 
+                <p class="section-text">
+                    Zigo Ministries exists to help people know Christ,
+                    grow in faith, discover their purpose and make a
+                    difference in the world around them.
+                </p>
 
-  <!-- CONTACT -->
+            </div>
 
-  <section id="contact">
-
-    <div class="section-title">
-      <span>Connect With Us</span>
-      <h2>We would love to hear from you.</h2>
-    </div>
-
-    <p class="welcome-text">
-      Zigo Ministries<br>
-      Bangalore, India<br><br>
-      Add your church address, phone number,
-      email and social media links here.
-    </p>
-
-  </section>
+        </section>
 
 
-  <!-- FOOTER -->
+        <!-- ================= ABOUT ================= -->
 
-  <footer>
+        <section id="about" class="about">
 
-    <h2>ZIGO MINISTRIES</h2>
+            <div class="container about-grid">
 
-    <p>
-      To know Christ. To make Him known.
-    </p>
+                <div class="about-content">
 
-    <p style="margin-top:25px;">
-      © 2026 Zigo Ministries. All rights reserved.
-    </p>
+                    <p class="section-label">
+                        ABOUT ZIGO
+                    </p>
 
-  </footer>
+                    <h2>
+                        Knowing Christ.<br>
+                        Living His <span>purpose.</span>
+                    </h2>
+
+                    <p>
+                        We are a community centered on Jesus Christ,
+                        committed to growing together in faith,
+                        serving others and sharing the love of God.
+                    </p>
+
+                    <a href="#" class="text-link">
+                        Learn more about us →
+                    </a>
+
+                </div>
+
+                <div class="about-card">
+
+                    <div class="cross-symbol">
+                        ✝
+                    </div>
+
+                    <p>
+                        "For where two or three are gathered
+                        in my name, there am I among them."
+                    </p>
+
+                    <span>
+                        Matthew 18:20
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MINISTRIES ================= -->
+
+        <section id="ministries" class="ministries">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        WHAT WE DO
+                    </p>
+
+                    <h2>
+                        Our <span>Ministries</span>
+                    </h2>
+
+                    <p>
+                        Discover ways to connect, grow and serve.
+                    </p>
+
+                </div>
+
+                <div class="ministry-grid">
+
+                    <article class="ministry-card">
+                        <span class="card-number">01</span>
+                        <h3>Worship</h3>
+                        <p>
+                            Experience God's presence through
+                            worship and praise.
+                        </p>
+                    </article>
+
+                    <article class="ministry-card">
+                        <span class="card-number">02</span>
+                        <h3>Youth</h3>
+                        <p>
+                            Building a generation passionate
+                            about Jesus.
+                        </p>
+                    </article>
+
+                    <article class="ministry-card">
+                        <span class="card-number">03</span>
+                        <h3>Children</h3>
+                        <p>
+                            Helping children discover God's
+                            love from an early age.
+                        </p>
+                    </article>
+
+                    <article class="ministry-card">
+                        <span class="card-number">04</span>
+                        <h3>Outreach</h3>
+                        <p>
+                            Taking the hope and love of Christ
+                            beyond our walls.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EVENTS ================= -->
+
+        <section id="events" class="events">
+
+            <div class="container">
+
+                <p class="section-label">
+                    STAY CONNECTED
+                </p>
+
+                <h2>
+                    Upcoming <span>Events</span>
+                </h2>
+
+                <div class="event-placeholder">
+
+                    <h3>Something amazing is coming.</h3>
+
+                    <p>
+                        Our upcoming events and gatherings
+                        will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SERMONS ================= -->
+
+        <section id="sermons" class="sermons">
+
+            <div class="container">
+
+                <p class="section-label">
+                    GROW IN THE WORD
+                </p>
+
+                <h2>
+                    Messages that <span>transform.</span>
+                </h2>
+
+                <p class="section-text">
+                    Explore messages, teachings and resources
+                    designed to help you grow in your relationship
+                    with Christ.
+                </p>
+
+                <a href="#" class="btn btn-primary">
+                    Explore Messages
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta">
+
+            <div class="container">
+
+                <p class="section-label">
+                    THERE'S A PLACE FOR YOU
+                </p>
+
+                <h2>
+                    Come as you are.<br>
+                    <span>Walk with us.</span>
+                </h2>
+
+                <a href="#contact" class="btn btn-light">
+                    Join Us
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contact" class="footer">
+
+        <div class="container footer-grid">
+
+            <div>
+                <h3>ZIGO MINISTRIES</h3>
+                <p>
+                    Knowing Christ. Living His purpose.
+                </p>
+            </div>
+
+            <div>
+                <h4>Connect</h4>
+                <p>Email: info@zigoministries.org</p>
+                <p>Phone: +91 XXXXX XXXXX</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Zigo Ministries. All rights reserved.
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
 
 </body>
+
 </html>
