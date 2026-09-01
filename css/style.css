@@ -1228,3 +1228,143 @@ img {
     }
 
 }
+/* =========================================================
+   LIVE SERVICE — MODERN HORIZONTAL LAYOUT
+   ========================================================= */
+
+.live-section {
+    padding: 90px 0;
+    background: #05070a;
+}
+
+.live-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Main horizontal layout */
+
+.live-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 70px;
+    margin-top: 45px;
+}
+
+/* Left content */
+
+.live-info {
+    padding: 0;
+}
+
+.live-info h3 {
+    font-size: 48px;
+    line-height: 1.05;
+    margin: 0 0 20px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+}
+
+.live-info p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 500px;
+}
+
+/* Live indicator */
+
+.live-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin: 25px 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+.live-status::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ff3b30;
+    box-shadow: 0 0 14px rgba(255, 59, 48, 0.7);
+}
+
+/* Video */
+
+.video-card {
+    width: 100%;
+}
+
+.video-placeholder {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    background: #071a2b;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Hover */
+
+.video-placeholder:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(45, 127, 249, 0.55);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(45, 127, 249, 0.08);
+}
+
+/* If iframe is inside video placeholder */
+
+.video-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .live-section {
+        padding: 70px 0;
+    }
+
+    .live-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .live-info h3 {
+        font-size: 36px;
+    }
+
+    .live-info p {
+        font-size: 15px;
+    }
+
+}
