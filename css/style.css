@@ -740,4 +740,102 @@ img {
     .cta {
         padding: 100px 0;
     }
+}/* ================================
+   MOBILE RESPONSIVE - FINAL
+================================ */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    /* HEADER */
+    .header {
+        padding: 18px 20px;
+    }
+
+    .nav-container {
+        padding: 0;
+    }
+
+    .nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav a {
+        font-size: 14px;
+    }
+
+    /* HERO */
+    .hero {
+        min-height: 80vh;
+        padding: 70px 20px;
+    }
+
+    .hero-content {
+        padding-top: 40px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+        line-height: 1;
+    }
+
+    .hero-text {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+        max-width: 240px;
+        text-align: center;
+    }
+
+    /* GENERAL SECTIONS */
+    .welcome,
+    .about,
+    .ministries,
+    .events,
+    .sermons {
+        padding: 70px 0;
+    }
+
+    /* ABOUT */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* MINISTRIES */
+    .ministry-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ministry-card {
+        min-height: 220px;
+    }
+
+    /* EVENTS */
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* FOOTER */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer {
+        padding: 70px 0 30px;
+    }
 }
