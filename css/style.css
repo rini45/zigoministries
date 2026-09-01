@@ -1,0 +1,24 @@
+/* ZIGO MINISTRIES
+   Main Website Styles
+*/
+
+:root {
+  --black: #05070A;
+  --navy: #071A2B;
+  --blue: #0B3554;
+  --accent: #2D7FF9;
+  --white: #FFFFFF;
+  --soft-white: #F5F7FA;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--white);
+  color: var(--black);
+}
